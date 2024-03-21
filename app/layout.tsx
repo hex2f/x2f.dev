@@ -12,7 +12,7 @@ import GitHub from "@/components/icons/GitHub";
 import LinkedIn from "@/components/icons/LinkedIn";
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://ianmitchell.dev"),
+	metadataBase: new URL("https://x2f.dev"),
 	title: {
 		template: "Leah Lundqvist | %s",
 		default: "Leah Lundqvist",

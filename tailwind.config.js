@@ -11,7 +11,7 @@ module.exports = {
 		extend: {
 			colors: {
 				dark: "oklch(26% 0.04 277 / <alpha-value>)",
-				light: "oklch(98% 0.01 269 / <alpha-value>)",
+				light: "oklch(100% 0 0 / <alpha-value>)",
 				highlight:
 					"oklch(66.59% 0.3018840772950374 4.255646284110876 / <alpha-value>)",
 				link: "oklch(54% 0.25 260 / <alpha-value>)",

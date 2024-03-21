@@ -23,13 +23,6 @@ html {
 	tab-size: 2;
 }
 
-.site-background {
-	background-image: url("/footer.svg");
-	background-size: 100% 250px;
-	background-position: bottom;
-	background-repeat: no-repeat;
-}
-
 .counter-reset {
 	counter-reset: count 0;
 	list-style-type: none;

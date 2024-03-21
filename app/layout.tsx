@@ -10,12 +10,13 @@ import Discord from "@/components/icons/Discord";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import GitHub from "@/components/icons/GitHub";
+import LinkedIn from "@/components/icons/LinkedIn";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://ianmitchell.dev"),
 	title: {
-		template: "Ian Mitchell | %s",
-		default: "Ian Mitchell",
+		template: "Leah Lundqvist | %s",
+		default: "Leah Lundqvist",
 	},
 	description: "My corner of the internet.",
 };
@@ -59,10 +60,10 @@ export default function RootLayout({
 			className={classNames("h-full bg-light", ibm.variable, dmSerif.variable)}
 		>
 			<head>
-				<title>Ian Mitchell</title>
+				<title>Leah Lundqvist</title>
 			</head>
 			<body className="min-h-full pb-64 site-background text-dark selection:bg-dark selection:text-light">
-				<div className="mt-12 mx-auto max-w-2xl p-4">
+				<div className="mt-12 mx-auto max-w-3xl p-4">
 					<header className="flex justify-between items-end mb-12">
 						<a href="/">
 							<Logo />
@@ -82,26 +83,26 @@ export default function RootLayout({
 
 					<footer className="mt-16 flex justify-between items-center font-mono text-xs">
 						<span className="opacity-60">
-							Copyright {new Date().getFullYear()} Ian Mitchell
+							Copyright {new Date().getFullYear()} Leah Lundqvist
 						</span>
 						<ul className="flex gap-4">
 							<li>
 								<span className="font-mono text-xs opacity-60">
-									ian.mitchell@hey.com
+									leah@pigeon.sh
 								</span>
 							</li>
 							<li>
-								<a href="https://twitter.com/ianmitchel1">
+								<a href="https://twitter.com/leahlundqvist">
 									<Twitter className="w-4 h-4 text-[#1DA1F2] opacity-70 hover:opacity-100 transition-opacity" />
 								</a>
 							</li>
 							<li>
-								<a href="https://discord.gg/ian">
-									<Discord className="w-4 h-4 text-[#5865F2] opacity-70 hover:opacity-100 transition-opacity" />
+								<a href="https://www.linkedin.com/in/hex2f">
+									<LinkedIn className="w-4 h-4 text-[#0077B5] opacity-70 hover:opacity-100 transition-opacity" />
 								</a>
 							</li>
 							<li>
-								<a href="https://github.com/ianmitchell">
+								<a href="https://github.com/hex2f">
 									<GitHub className="w-4 h-4 text-[#333] opacity-70 hover:opacity-100 transition-opacity" />
 								</a>
 							</li>

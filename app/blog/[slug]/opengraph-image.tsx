@@ -79,24 +79,22 @@ export default async function Image({ params }: { params: { slug: string } }) {
 
 				<div tw="flex flex-row items-center mt-auto ml-8">
 					<img
-						src="https://pbs.twimg.com/profile_images/1706472056458797056/cb63cZ9Z_400x400.jpg"
+						src="https://pbs.twimg.com/profile_images/1683449321411301376/nm4sHgws_400x400.png"
 						tw="rounded-full w-20 h-20 mr-8"
 					/>
 
 					<div tw="flex flex-col">
 						<h2 tw="m-0 text-3xl" style={{ fontFamily: "Inter" }}>
-							Ian Mitchell
+							Leah Lundqvist
 						</h2>
 						<p tw="m-0 text-2xl" style={{ color: "#777", fontFamily: "IBM" }}>
-							@IanMitchel1
+							@LeahLundqvist
 						</p>
 					</div>
 					<p tw="ml-auto mr-8 text-2xl" style={{ fontFamily: "Inter" }}>
 						{formattedDate}
 					</p>
 				</div>
-
-				<img tw="w-full h-24" src="https://ianmitchell.dev/footer.svg" />
 			</div>
 		),
 		{

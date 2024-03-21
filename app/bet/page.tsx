@@ -5,7 +5,7 @@ import path from "node:path";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Ian Mitchell | Bet",
+	title: "Leah Lundqvist | Bet",
 	description:
 		"I made a dumb sports bet with my friend Staffan, and track the yearly result.",
 };

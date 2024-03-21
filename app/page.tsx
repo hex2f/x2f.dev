@@ -5,10 +5,9 @@ import { Fragment } from "react";
 export default function IndexPage() {
 	return (
 		<Fragment>
-			<H1 className="mb-4">Hi! My name is Ian.</H1>
+			<H1 className="mb-4">Hiya! My name is Leah.</H1>
 			<Paragraph>
-				I'm a web enthusiast currently working as a Senior Software Engineer at
-				Vanta, where I work on the Self-Serve team.
+				I'm a multi-disciplinary software engineer with a passion for building wonderful user experiences. I'm currently helping build <a href="https://mainly.ai/" className="underline">MainlyAI</a>.
 			</Paragraph>
 			{/*<H2 className="mb-6">Current Projects</H2>
 			 <div className="grid grid-cols-2 gap-4">

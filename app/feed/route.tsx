@@ -11,22 +11,22 @@ export async function GET() {
 	const posts = getCachedPostList();
 
 	const feed = new Feed({
-		title: "Ian Mitchell's Blog",
+		title: "Leah Lundqvist's Blog",
 		description: "My personal sliver of the web",
-		id: "https://ianmitchell.dev/",
-		link: "https://ianmitchell.dev",
+		id: "https://x2f.dev/",
+		link: "https://x2f.dev",
 		// image: "http://example.com/image.png",
 		// favicon: "http://example.com/favicon.ico",
-		copyright: `All rights reserved ${new Date().getFullYear()}, Ian Mitchell`,
+		copyright: `All rights reserved ${new Date().getFullYear()}, Leah Lundqvist`,
 		generator: "Feed for Node.js",
 		// feedLinks: {
 		// 	json: "https://example.com/json",
 		// 	atom: "https://example.com/atom",
 		// },
 		author: {
-			name: "Ian Mitchell",
-			email: "ian.mitchell@hey.com",
-			link: "https://ianmitchell.dev",
+			name: "Leah Lundqvist",
+			email: "leah@pigeon.sh",
+			link: "https://x2f.dev",
 		},
 	});
 
@@ -45,13 +45,13 @@ export async function GET() {
 
 		feed.addItem({
 			title: frontmatter.title,
-			id: `https://ianmitchell.dev/blog/${slug}`,
-			link: `https://ianmitchell.dev/blog/${slug}`,
+			id: `https://x2f.dev/blog/${slug}`,
+			link: `https://x2f.dev/blog/${slug}`,
 			content: renderToStaticMarkup(
 				<Fragment>
 					<StaticMarkdown tree={tree}>{content}</StaticMarkdown>
 					<a
-						href={`mailto:ian.mitchell@hey.com?subject=Reply%20to:%20“${frontmatter.title}”`}
+						href={`mailto:leah@pigeon.sh?subject=Reply%20to:%20“${frontmatter.title}”`}
 					>
 						Reply via e-mail
 					</a>

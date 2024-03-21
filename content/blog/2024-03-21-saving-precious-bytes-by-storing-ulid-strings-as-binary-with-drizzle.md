@@ -88,10 +88,16 @@ Now, let's see how we can use this in our application code:
 import { users } from "./schema";
 import { db } from "./db";
 
-const user = await db.insert(users, {
+await db.insert(users).values({
 	name: "Leah",
 	email: "leah@pigeon.sh"
 })
+
+const user = await db
+	.select({ id: users.id })
+	.from(users)
+	.where(eq(users.email, "leah@pigeon.sh"));
+
 																	// "01HSF4ESKKTVHKREJMEXDWYE5F"
 console.log("Created user with ID:", user.id);
 ```

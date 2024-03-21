@@ -15,7 +15,7 @@ This is a big waste of memory, as ULIDs are just 128 bits, or 16 bytes long. Sto
 **Intoducing:** [Custom column types in Drizzle](https://orm.drizzle.team/docs/custom-types)! With this feature, you can define your own column types and how they are de/serialized. This allows you to store ULIDs as binary data in the database, while still working with strings in your application code.
 
 ```ts
-import { CrockfordBase32 } from "crockford-base32";
+import * as base32 from "@0x57/base32";
 import { sql, type SQL } from "drizzle-orm";
 import { customType } from "drizzle-orm/mysql-core";
 
@@ -41,7 +41,7 @@ export const binaryBase32 = customType<{
 	// The value that will be sent in queries to the database
 	toDriver(value: string): SQL {
 		// First, let's encode the base32 string to a buffer
-		const buffer = new Uint8Array(CrockfordBase32.decode(value));
+		const buffer = new Uint8Array(base32.decode(value));
 		// Then, let's convert the buffer to a hex string
 		const hex = bytestohex(buffer);
 		// Which we'll return as a raw SQL string
@@ -54,7 +54,7 @@ export const binaryBase32 = customType<{
 		// So lets decode it back into a Uint8Array
 		const buffer = Uint8Array.from(str, (c) => c.charCodeAt(0));
 		// And encode it as a base32 string
-		return CrockfordBase32.encode(buffer);
+		return base32.encode(buffer);
 	}
 });
 ```

@@ -59,6 +59,33 @@ export const binaryBase32 = customType<{
 });
 ```
 
+But **there's a problem with this code**. Our Uint8Array will actually be 17 bytes, not 16. This is because ULIDs are 128 bits long, and base32 encoding uses 5 bits per character. And guess what, 128 is not divisible by 5!
+
+An easy way to fix this is by first padding the ULID with zeroes to 32 characters, then slicing the first four bytes after decoding it. This way, we'll always have a 16-byte buffer.
+
+```ts
+toDriver(value: string): SQL {
+	// Pad the ULID with zeroes to 32 characters
+	const padded = value.padEnd(32, '0');
+	const buffer = new Uint8Array(base32.decode(value));
+	// Slice after the first 4 bytes and convert to hex
+	const hex = bytestohex(buffer.slice(4));
+	return sql.raw(`x'${hex}'`);
+}
+```
+
+When re-encoding our buffer back into a base32 string, we'll also have to pad the buffer with zeroes before encoding it to ensure the bytes line up with the original ULID.
+
+```ts
+fromDriver(value: string): string {
+	const buffer = Uint8Array.from(str, (c) => c.charCodeAt(0));
+	// Pad the buffer with 4 zero bytes
+	const padded = new Uint8Array([0, 0, 0, 0, ...buffer]);
+	// Encode the padded buffer and get the last 26 characters
+	return base32.encode(padded).slice(-26);
+}
+```
+
 Now we can use this custom column type in your Drizzle schema:
 
 ```ts
@@ -68,8 +95,8 @@ import { mysqlTable, varchar } from "drizzle-orm/mysql-core";
 export const users = mysqlTable(
 	"users",
 	{
-		id: binaryBase32("id", { length: 17 })
-			.notNull()									// 17?? we'll come back to this...
+		id: binaryBase32("id", { length: 16 })
+			.notNull()
 			.primaryKey()
 			.$defaultFn(() => ulid()),
 		name: varchar("name", { length: 256 }),
@@ -79,8 +106,6 @@ export const users = mysqlTable(
 ```
 
 And that's it! Now you can store ULIDs as binary data in your database, while still working with strings in your application code. 
-
-But, you may be wondering why we're using a length of 17 for the ID column. This is because ULIDs are 128 bits long, and base32 encoding uses 5 bits per character. And guess what, 128 is not divisible by 5! So I'll leave it as an exercise for you to figure out some smart bitshifting magic to make this work with only storing 16 bytes in the database :p
 
 Now, let's see how we can use this in our application code:
 

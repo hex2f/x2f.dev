@@ -31,3 +31,4 @@ yarn-error.log*
 
 # Build Files
 /app/blog/\[slug\]/\(data\)/posts.json
+.vercel

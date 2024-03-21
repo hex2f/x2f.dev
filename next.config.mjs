@@ -22,27 +22,10 @@ export default {
 				destination: "/blog/:post",
 				permanent: true,
 			},
-			{
-				source: "/discord",
-				destination: "https://discord.gg/ian",
-				permanent: false,
-			},
 		];
 	},
 	async rewrites() {
 		return [
-			{
-				source: "/pokemon",
-				destination: "https://pokemon-cre3xe0l1-ianmitchell1.vercel.app",
-			},
-			{
-				source: "/bhs",
-				destination: "https://bhs-g15spfgi2-ianmitchell1.vercel.app",
-			},
-			{
-				source: "/projects/bhs",
-				destination: "https://bhs-g15spfgi2-ianmitchell1.vercel.app",
-			},
 			{
 				source: "/resume",
 				destination: "/",

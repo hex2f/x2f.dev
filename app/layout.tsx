@@ -6,7 +6,6 @@ import Logo from "@/components/Logo";
 import { Analytics } from "@vercel/analytics/react";
 import Link from "next/link";
 import Twitter from "@/components/icons/Twitter";
-import Discord from "@/components/icons/Discord";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Metadata } from "next";
 import GitHub from "@/components/icons/GitHub";

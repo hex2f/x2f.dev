@@ -61,7 +61,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
 						style={{ backgroundColor: "#333333" }}
 					>
 						<span tw="text-2xl text-white" style={{ fontFamily: "IBM" }}>
-							i
+							L
 						</span>
 					</div>
 				</div>

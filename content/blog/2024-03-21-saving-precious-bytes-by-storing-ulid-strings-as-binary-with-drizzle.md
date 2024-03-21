@@ -1,6 +1,7 @@
 ---
-title: Saving precious bytes by storing ULID strings as binary in Drizzle
-date: 2024-03-22
+title: Saving precious bytes by storing ULID strings as binary with Drizzle
+date: 2024-03-21
+excerpt: How to store ULIDs as binary data in MySQL databases while still working with strings in your application code using Drizzle's custom column types.
 ---
 
 I recently read [The problem with using UUID primary key in MySQL](https://planetscale.com/blog/the-problem-with-using-a-uuid-primary-key-in-mysql) by [PlanetScale](https://planetscale.com/) where they argue the benefits of using auto-incrementing integers as primary keys in MySQL databases. I am not a fan of this approach, as it's hard to ensure unique IDs across multiple databases without some sort of central ID authority.
